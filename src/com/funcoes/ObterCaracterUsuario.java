@@ -8,7 +8,7 @@ public class ObterCaracterUsuario {
 
         while (true) {
             try {
-                System.out.println("Escolha o seu caractere (X ou O):");
+                System.out.println("Escolha o seu caractere:");
 
                 String entrada = teclado.nextLine().toUpperCase();
 
