@@ -55,4 +55,11 @@ public class Tabuleiro {
     public static String retornarPosicoesLivres(char[][] tabuleiro){
         //
     }
+
+    public static boolean sortearValorBooleano() {
+        Random random = new Random();
+        boolean valor = random.nextBoolean(); //sorteia um valor aleatorio
+
+        return valor; //retorna o valor
+    }
 }    

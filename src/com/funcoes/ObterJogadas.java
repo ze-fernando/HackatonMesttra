@@ -102,4 +102,11 @@ public class ObterJogadas {
         //     return resultado;
         // }
 
+    public static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
+        String posicao = Integer.toString(linha) + Integer.toString(coluna); //converte o valor da linha e coluna em String e junta as duas para formar a posicao
+        
+        return posicoesLivres.contains(posicao); // verifica se a posicao está contida dentro de posicoesLivres, se sim retorna true, se não retorna false
+    
+    }
+
 }
