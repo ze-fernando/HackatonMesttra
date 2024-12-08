@@ -56,7 +56,7 @@ public class ObterJogadas {
 
             return converterJogadaStringParaVetorInt(jogadaSorteada);
     }
-
+    
     public static int[] converterJogadaStringParaVetorInt(String jogada) {
         // Validar se a jogada está no formato correto (exemplo: "A 1")
         if (jogada == null || jogada.trim().isEmpty()) {
