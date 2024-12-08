@@ -51,4 +51,22 @@ public class Tabuleiro {
             }
         }
     }
+
+    static String retornarPosicoesLivres(char[][] tabuleiro) {
+        StringBuilder posicoesLivres = new StringBuilder(); // Usar StringBuilder para manipular a string.
+
+        // Percorrer cada posição no tabuleiro.
+        for (int i = 0; i < tabuleiro.length; i++) {
+            for (int j = 0; j < tabuleiro[i].length; j++) {
+                if (tabuleiro[i][j] == ' ') { // Verifica se a posição está livre (representada por um espaço vazio ' ').
+                    if (posicoesLivres.length() > 0) {
+                        posicoesLivres.append(";"); // Adiciona um separador caso já existam posições livres.
+                    }
+                    posicoesLivres.append(i).append(j); // Adiciona a posição no formato xy.
+                }
+            }
+        }
+
+        return posicoesLivres.toString(); // Retorna a string contendo as posições livres.
+    }
 }    
