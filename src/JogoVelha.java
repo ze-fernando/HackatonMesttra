@@ -1,6 +1,8 @@
 import java.util.Random;
 import java.util.Scanner;
 
+import com.funcoes.Tabuleiro;
+
 public class JogoVelha {
     // Estes caracteres são aceitos como caracteres para representarem
     // os jogadores. Utizado para evitar caracteres que não combinem com
@@ -13,22 +15,25 @@ public class JogoVelha {
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
+        Random rd = new Random();
 
         char[][] tabuleiro = new char[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
         
         //TODO: Faça a inicialização do tabuleiro aqui
-
+        Tabuleiro.inicializarTabuleiro(tabuleiro);
         // Definimos aqui qual é o caractere que cada jogador irá utilizar no jogo.
         //TODO: chame as funções obterCaractereUsuario() e obterCaractereComputador
         //para definir quais caracteres da lista de caracteres aceitos que o jogador
         //quer configurar para ele e para o computador.
-        char caractereUsuario = ????;
-        char caractereComputador = ????;
+        System.out.println("Digte o caracter que você quer utilizar [X] [O] [0] [U] [C]: ");
+        char caractereUsuario = teclado.nextLine().charAt(caractereUsuario);
+        System.out.println("Digte o caracter que o computador irá utilizar [X] [O] [0] [U] [C]: ");
+        char caractereComputador = teclado.nextLine().charAt(caractereComputador);
 
         // Esta variavel é utilizada para definir se o usuário começa a jogar ou não.
         // Valor true, usuario começa jogando, valor false computador começa.
         //TODO: obtenha o valor booleano sorteado
-        boolean vezUsuarioJogar = ????;
+        boolean vezUsuarioJogar = rd.nextBoolean();
 
         boolean jogoContinua;
 
