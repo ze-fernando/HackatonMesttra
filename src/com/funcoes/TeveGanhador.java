@@ -1,4 +1,5 @@
 package com.funcoes;
+
 public static class TeveGanhador{
     public static boolean teveGanhador(char[][] tabuleiro, char caractereJogador) {
         if(teveGanhadorLinha(tabuleiro, caractereJogador) ||

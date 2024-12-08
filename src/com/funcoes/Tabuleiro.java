@@ -51,4 +51,8 @@ public class Tabuleiro {
             }
         }
     }
+
+    public static String retornarPosicoesLivres(char[][] tabuleiro){
+        //
+    }
 }    
