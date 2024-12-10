@@ -1,5 +1,7 @@
 package br.com.processar;
 
+import java.util.Scanner;
+
 /* Descrição: Utilizado para realizar as ações necessárias para processar a vez do computador jogar. Este método é encarregado de obter a jogada do computador através do método obterJogadaComputador, depois realizar a atualização do tabuleiro através do método retornarTabuleiroAtualizado e retornar o tabuleiro atualizado.
 Nível de complexidade: 4 de 10.*/
 
@@ -36,5 +38,16 @@ public class Processar {
         // Processando a vez do computador
         
         processarVezComputador(tabuleiro, caractereComputador);
+    }
+
+    public static char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
+        System.out.println("É A VEZ DO USUÁRIO JOGAR!");
+        char jogadaUsuario;
+        String positions = retornarPosicoesLivres(tabuleiro);
+        int[] jogada = obterJogadaUsuario(positions, teclado);
+
+        return retornarTabuleiroAtualizado(tabuleiro, jogada, caractereUsuario);
+
+  
     }
 }

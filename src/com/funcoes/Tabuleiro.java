@@ -26,5 +26,20 @@ public class Tabuleiro{
             if (i < 2)
                 System.out.println("          ------+------+------");
         }
-    }   
+    }
+    
+    public static char[][] retornarTabuleiroAtualizado(char[][] tabuleiro, int[] jogada, char caractereJogador) {
+        if (jogada[0] < 0 || jogada[0] >= tabuleiro.length || 
+            jogada[1] < 0 || jogada[1] >= tabuleiro[0].length) {
+            throw new IllegalArgumentException("JOGADA FORA DOS LIMITES DO TABULEIRO!");
+        }
+        
+        if (tabuleiro[jogada[0]][jogada[1]] != '-') { // '-'posição vazia
+            throw new IllegalStateException("A POSIÇÃO JÁ TA OCUPADAA!");
+        }
+    
+        tabuleiro[jogada[0]][jogada[1]] = caractereJogador;
+    
+        return tabuleiro;
+     }    
 }
