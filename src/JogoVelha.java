@@ -1,16 +1,14 @@
+
 import java.util.Random;
 import java.util.Scanner;
 
-import com.funcoes.Tabuleiro;
+import com.funcoes.*;
+
 
 public class JogoVelha {
-    // Estes caracteres são aceitos como caracteres para representarem
-    // os jogadores. Utizado para evitar caracteres que não combinem com
-    // o desenho do tabuleiro.
+
     final static String CARACTERES_IDENTIFICADORES_ACEITOS = "XO0UC";
 
-    // Tamanho do tabuleiro 3x3. Para o primeiro nivel de dificuldade
-    // considere que este valor não será alterado.
     final static int TAMANHO_TABULEIRO = 3;
 
     public static void main(String[] args) {
@@ -18,21 +16,23 @@ public class JogoVelha {
         Random rd = new Random();
 
         char[][] tabuleiro = new char[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
-        
-        //TODO: Faça a inicialização do tabuleiro aqui
         Tabuleiro.inicializarTabuleiro(tabuleiro);
         // Definimos aqui qual é o caractere que cada jogador irá utilizar no jogo.
         //TODO: chame as funções obterCaractereUsuario() e obterCaractereComputador
         //para definir quais caracteres da lista de caracteres aceitos que o jogador
-        //quer configurar para ele e para o computador.
+        //quer configurar para ele e para o computador. 
+        ObterCaractere obterCaractere = new ObterCaractere();
+
         System.out.println("Digte o caracter que você quer utilizar [X] [O] [0] [U] [C]: ");
-        char caractereUsuario = teclado.nextLine().charAt(caractereUsuario);
+        char caractereUsuario = ObterCaractere.obterCaractereUsuario(teclado);
         System.out.println("Digte o caracter que o computador irá utilizar [X] [O] [0] [U] [C]: ");
-        char caractereComputador = teclado.nextLine().charAt(caractereComputador);
+        char caractereComputador = ObterCaractere.obterCaractereComputador(teclado, caractereUsuario);
 
         // Esta variavel é utilizada para definir se o usuário começa a jogar ou não.
         // Valor true, usuario começa jogando, valor false computador começa.
         //TODO: obtenha o valor booleano sorteado
+      
+
         boolean vezUsuarioJogar = rd.nextBoolean();
 
         boolean jogoContinua;
@@ -41,42 +41,44 @@ public class JogoVelha {
             // controla se o jogo terminou
             jogoContinua = true;
             //TODO: Exiba o tabuleiro aqui
+            Tabuleiro.exibirTabuleiro(tabuleiro);
 
-            
-            if ( /*TODO: com base no bloco defina o critério */ ){
-                //TODO: Execute processar vez do usuario
-                tabuleiro = ?????;
+            if ( vezUsuarioJogar){
+               Processar.processarVezUsuario(teclado, tabuleiro, caractereUsuario);
 
                 // Verifica se o usuario venceu
                 //TODO: Este if deve executar apenas se teve ganhador 
-                if ( /*TODO: esreva aqui a chamada para teve ganhador*/ ) {
+                if ( TeveGanha.teveGanhador(tabuleiro, caractereUsuario) ) {
                     //TODO: Exiba que o usuario ganhou
+                    Vitoria.exibirVitoriaUsuario();
                     jogoContinua = false;
                 }
 
                 //TODO: defina qual o vaor a variavel abaixo deve possuir
-                vezUsuarioJogar = ????;
+                vezUsuarioJogar = false;
+                jogoContinua = true;
             } else {
 
                 //TODO: Execute processar vez do computador
-                tabuleiro = ?????;
-
+                tabuleiro = Processar.processarVezComputador(tabuleiro, caractereComputador);
+                // Processar.processarVezComputador(tabuleiro, caractereComputador);
                 // Verifica se o computador venceu
                 //TODO: Este if deve executar apenas se teve ganhador
-                if ( /*esreva aqui a chamada para teve ganhador*/ ) {
-
+                if (TeveGanha.teveGanhador(tabuleiro, caractereComputador)) {
+                    Vitoria.exibirVitoriaComputador();
                     //TODO: Exiba que o computador ganhou
                     jogoContinua = false;
                 }
 
                 //TODO: defina qual o vaor a variavel abaixo deve possuir
-                vezUsuarioJogar = ????;
+                vezUsuarioJogar = true;
+                jogoContinua = true;
             }
         
             //TODO: Este if deve executar apenas se o jogo continua E 
             //ocorreu tempate. Utilize o metodo teveEmpate()
-            if ( /*escreva aqui a condicao conforme o TODO acima*/ ) {
-
+            if ( jogoContinua && Empate.teveEmpate(tabuleiro)) {
+                Empate.exibirEmpate();
                 //TODO: Exiba que ocorreu empate
                 jogoContinua = false;
             }
