@@ -1,19 +1,17 @@
 package com.funcoes;
+
 import java.util.Scanner;
 
 public class ObterCaractere {
     public static char obterCaractereUsuario(Scanner teclado) {
-        final char[] CARACTERES_IDENTIFICADORES_ACEITOS = {'X', 'O', '0', 'U', 'C'} ;
-
         while (true) {
             try {
                 System.out.println("Escolha o seu caractere:");
 
-                String entrada = teclado.nextLine().toUpperCase();
+                char entrada = teclado.nextLine().toUpperCase().charAt(0);
 
-                if (entrada.length() == 1 && (entrada.charAt(0) == 'X' || entrada.charAt(0) == 'O' || 
-                    entrada.charAt(0) == '0'  || entrada.charAt(0) == 'U' || entrada.charAt(0) == 'C')) {
-                    return entrada.charAt(0); // Retorna o caractere válido escolhido pelo usuário
+                if (isValid(entrada)) {
+                    return entrada; // Retorna o caractere válido escolhido pelo usuário
                 }
 
                 System.out.println("Entrada inválida. Por favor, escolha um caractere válido.");
@@ -25,19 +23,29 @@ public class ObterCaractere {
     }
 
     public static char obterCaractereComputador(Scanner teclado, char caractereUsuario) {
-        final char[] CARACTERES_IDENTIFICADORES_ACEITOS = {'X', 'O', '0', 'U', 'C'};
+        while (true) {
+            char entrada = teclado.nextLine().toUpperCase().charAt(0);
 
-        try {
-            for (char caractere : CARACTERES_IDENTIFICADORES_ACEITOS) {
-                if (caractere != caractereUsuario) {
-                    return caractere; // Retorna o caractere que não foi escolhido pelo usuário
+            if(isValid(entrada)){
+                if (entrada == caractereUsuario) {
+                    System.out.println("Caractere já escolhido, selecione outro!");
                 }
-            }
+                else {
+                    return entrada;
+                }
 
-            throw new IllegalStateException("Nenhum caractere válido disponível para o computador.");
-        } catch (Exception e) {
-            System.out.println("Erro ao determinar o caractere do computador: " + e.getMessage());
-            throw e; // Relança a exceção para informar o erro de forma clara
+            }
+             else{
+              System.out.println("Caractere invalido, selecione outro!");
+             }
         }
+    }
+
+    static boolean isValid(char entrada){
+     if(entrada == 'X' || entrada == 'O'|| 
+         entrada == '0' ||entrada == 'U'|| entrada == 'C'){
+        return true;
+    }
+    return false;
     }
 }

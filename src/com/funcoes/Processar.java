@@ -1,28 +1,30 @@
 package com.funcoes;
 import java.util.Scanner;
-import com.funcoes.Posicoes;
-import com.funcoes.ObterJogadas;
 
     public class Processar {
     
-    public static char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
-        System.out.println("É A VEZ DO USUÁRIO JOGAR!");
-        char jogadaUsuario;
-        String positions = Posicoes.retornarPosicoesLivres(tabuleiro);
-        int[] jogada = ObterJogadas.obterJogadaUsuario(positions, teclado);
+        public static char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
+            System.out.println("É A VEZ DO USUÁRIO JOGAR!");
+            // char jogadaUsuario;
+            String positions = Tabuleiro.retornarPosicoesLivres(tabuleiro);
+            int[] jogada = ObterJogadas.obterJogadaUsuario(positions, teclado);
 
-        return Tabuleiro.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereUsuario);
-}
+            tabuleiro = Tabuleiro.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereUsuario);
 
-   
-    public static char[][] processarVezComputador(char[][] tabuleiro, char caractereComputador) {
-
-        char jogadaComputador;
-        String positionsPc = Posicoes.retornarPosicoesLivres(tabuleiro);
-
-        int[] jogada = ObterJogadas.obterJogadaComputador(positionsPc, null);
-
-        return Tabuleiro.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereComputador);
- 
-    }
+            return tabuleiro;
+        }
+       
+        
+    
+        public static char[][] processarVezComputador(char[][] tabuleiro, char caractereComputador) {
+           
+            String posicoesLivres = Tabuleiro.retornarPosicoesLivres(tabuleiro);
+            Scanner teclado = new Scanner(System.in);
+           
+            int[] jogada = ObterJogadas.obterJogadaComputador(posicoesLivres, teclado);
+    
+            tabuleiro = Tabuleiro.retornarTabuleiroAtualizado(tabuleiro, jogada, caractereComputador);
+    
+            return tabuleiro;
+        }
 }

@@ -67,13 +67,6 @@ public class ObterJogadas {
         return new int[] { linha, coluna };
     }
 
-        // static int[] converterJogadaStringParaVetorInt(String jogada){
-        //    int[] resultado = new int[2];
-
-        //    resultado[0] = Character.getNumericValue(jogada.charAt(0));
-
-        //     return resultado;
-        // }
 
     public static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
         String posicao = Integer.toString(linha) + Integer.toString(coluna); //converte o valor da linha e coluna em String e junta as duas para formar a posicao
