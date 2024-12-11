@@ -1,10 +1,9 @@
-package com.funcoes;
-import com.funcoes.Tabuleiro;
 
+package com.funcoes;
 
 public class Empate{
 
-    public static void exibirEmpate(){
+    public static void exibirEmpate() {
         System.out.println("**********************************");
         System.out.println("*          Ocorreu empate!       *");
         System.out.println("**********************************");
@@ -19,7 +18,7 @@ public class Empate{
     }
 
     public static boolean teveEmpate(char[][] tabuleiro){
-        public String posLivre = retornarPosicoesLivres(tabuleiro);
+        String posLivre = Posicoes.retornarPosicoesLivres(tabuleiro);
 
         if(posLivre == "Nenhuma Posição Livre"){
             return true;

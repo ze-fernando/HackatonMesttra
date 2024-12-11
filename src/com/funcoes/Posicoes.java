@@ -1,4 +1,6 @@
-public static class Posicoes{
+package com.funcoes;
+
+public class Posicoes{
     public static String retornarPosicoesLivres(char[][] tabuleiro){
         StringBuilder posicoesLivres = new StringBuilder();
 
