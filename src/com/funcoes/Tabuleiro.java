@@ -28,18 +28,19 @@ public class Tabuleiro{
         }
     }
     
-    public static char[][] retornarTabuleiroAtualizado(char[][] tabuleiro, int[] jogada, char caractereJogador) {
-        if (jogada[0] < 0 || jogada[0] >= tabuleiro.length || 
-            jogada[1] < 0 || jogada[1] >= tabuleiro[0].length) {
-            throw new IllegalArgumentException("JOGADA FORA DOS LIMITES DO TABULEIRO!");
+   public static char[][] retornarTabuleiroAtualizado(char[][] tabuleiro, int[] jogada, char caractereJogador) {
+
+        if (jogada.length != 2) {
+            throw new IllegalArgumentException("A jogada deve ter exatamente duas posições: linha e coluna.");
         }
-        
-        if (tabuleiro[jogada[0]][jogada[1]] != '-') { // '-'posição vazia
-            throw new IllegalStateException("A POSIÇÃO JÁ TA OCUPADAA!");
+        int linha = jogada[0];
+        int coluna = jogada[1];
+    
+        if (linha < 0 || linha >= tabuleiro.length || coluna < 0 || coluna >= tabuleiro[0].length) {
+            throw new IndexOutOfBoundsException("Os índices da jogada estão fora dos limites do tabuleiro.");
         }
     
-        tabuleiro[jogada[0]][jogada[1]] = caractereJogador;
-    
+        tabuleiro[linha][coluna] = caractereJogador;
         return tabuleiro;
-     }    
+    }
 }
