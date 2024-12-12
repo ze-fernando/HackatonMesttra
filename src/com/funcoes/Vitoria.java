@@ -32,7 +32,6 @@ public class Vitoria {
     public static void exibirVitoriaUsuario() {
         // Exibindo mensagem de vitória
         System.out.println("O usuário venceu!");
-
         // Exibindo uma arte ASCII representando um usuário feliz
         System.out.println("         \\o/\n" +
                 "          | \n" +

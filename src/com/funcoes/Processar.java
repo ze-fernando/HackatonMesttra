@@ -7,7 +7,7 @@ public class Processar {
 
     public static char[][] processarVezUsuario(Scanner teclado, char[][] tabuleiro, char caractereUsuario) {
         System.out.println("É A VEZ DO USUÁRIO JOGAR!");
-        // char jogadaUsuario;
+        
         String positions = Tabuleiro.retornarPosicoesLivres(tabuleiro);
         int[] jogada = ObterJogadas.obterJogadaUsuario(positions, teclado);
 
