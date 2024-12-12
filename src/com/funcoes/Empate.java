@@ -18,7 +18,7 @@ public class Empate{
     }
 
     public static boolean teveEmpate(char[][] tabuleiro){
-        String posLivre = Posicoes.retornarPosicoesLivres(tabuleiro);
+        String posLivre = Tabuleiro.retornarPosicoesLivres(tabuleiro);
 
         if(posLivre == "Nenhuma Posição Livre"){
             return true;
