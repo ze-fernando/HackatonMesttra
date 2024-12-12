@@ -26,26 +26,24 @@ public class ObterCaractere {
         while (true) {
             char entrada = teclado.nextLine().toUpperCase().charAt(0);
 
-            if(isValid(entrada)){
+            if (isValid(entrada)) {
                 if (entrada == caractereUsuario) {
                     System.out.println("Caractere já escolhido, selecione outro!");
-                }
-                else {
+                } else {
                     return entrada;
                 }
 
+            } else {
+                System.out.println("Caractere invalido, selecione outro!");
             }
-             else{
-              System.out.println("Caractere invalido, selecione outro!");
-             }
         }
     }
 
-    static boolean isValid(char entrada){
-     if(entrada == 'X' || entrada == 'O'|| 
-         entrada == '0' ||entrada == 'U'|| entrada == 'C'){
-        return true;
-    }
-    return false;
+    static boolean isValid(char entrada) {
+        if (entrada == 'X' || entrada == 'O' ||
+                entrada == '0' || entrada == 'U' || entrada == 'C') {
+            return true;
+        }
+        return false;
     }
 }
