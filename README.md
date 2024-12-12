@@ -24,14 +24,14 @@ O objetivo foi construir um jogo da velha (Tic-Tac-Toe) em um tabuleiro 3x3, ond
 
 ## Equipe
 Este projeto foi desenvolvido pelo **Grupo 7**, composto por:
-- Aleander Victor Alves Anjos
-- José Fernando Libarino da Silva
-- Laís Vieira Batista Pacheco
-- Leandro Dionísio Albernaz
-- Lucas Vinícius de Oliveira
-- Ryan Kesley Rosa da Silva
-- Yago de Souza Freitas Porto
-- Tamiris Calixto
+- [Aleander Victor Alves Anjos](https://www.linkedin.com/in/aleander-anjos)
+- [José Fernando Libarino da Silva](github.com/ze-fernando)
+- [Laís Vieira Batista Pacheco](https://www.linkedin.com/in/la%C3%ADs-vieira-contato/)
+- [Leandro Dionísio Albernaz](https://www.linkedin.com/in/leandro-albernaz/)
+- [Lucas Vinícius de Oliveira](https://www.linkedin.com/in/lucasxoliva)
+- [Ryan Kesley Rosa da Silva](https://github.com/ryankesley)
+- [Yago de Souza Freitas Porto](https://github.com/yagoporto)
+- [Tamiris Calixto](https://www.linkedin.com/in/thamiriscalixt0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
 ## Como Executar o Projeto
 

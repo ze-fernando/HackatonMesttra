@@ -1,4 +1,4 @@
-package estudos_back.jogoVelha;
+package com.funcoes;
 import java.util.Scanner;
 
 public class ObterCaracterUsuario {
