@@ -1,7 +1,7 @@
 
 package com.funcoes;
 
-public class Empate{
+public class Empate {
 
     public static void exibirEmpate() {
         System.out.println("**********************************");
@@ -17,14 +17,13 @@ public class Empate{
         System.out.println("**********************************");
     }
 
-    public static boolean teveEmpate(char[][] tabuleiro){
+    public static boolean teveEmpate(char[][] tabuleiro) {
         String posLivre = Tabuleiro.retornarPosicoesLivres(tabuleiro);
 
-        if(posLivre == "Nenhuma Posição Livre"){
+        if (posLivre == "") {
             return true;
         }
         return false;
     }
-
 
 }

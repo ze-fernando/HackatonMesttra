@@ -1,78 +1,80 @@
 package com.funcoes;
+
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class ObterJogadas {
-    public static int[] obterJogadaUsuario(String posicoesLivres, Scanner teclado) {
-        System.out.println("Digite dois valores seprados por espaço LINHA COLUNA: ");
-        String jogada = teclado.nextLine();
-        int[] jogadaInt = new int[2];
-        if(posicoesLivres.contains(jogada) && posicoesLivres.contains(jogada)){
-            jogadaInt = converterJogadaStringParaVetorInt(jogada);
+    static int[] obterJogadaUsuario(String posicoesLivres, Scanner teclado) {
+        int[] jogada = new int[2]; //armazenar a linha e a coluna
+
+        while (true) {
+            System.out.println("Digite dois valores seprados por espaço LINHA COLUNA:  (exemplo: 1 1, 2 3, etc): ");
+            String input = teclado.nextLine().trim(); 
+
+            if (input.matches("\\d+ \\d+")) {
+                String[] partes = input.split(" ");
+                int linha = Integer.parseInt(partes[0]) - 1; 
+                int coluna = Integer.parseInt(partes[1]) - 1; 
+
+                if (linha >= 0 && linha <= 2 && coluna >= 0 && coluna <= 2) {
+                    
+                    if (jogadaValida(posicoesLivres, linha, coluna)) {
+                        jogada[0] = linha;
+                        jogada[1] = coluna;
+                        break; 
+                    } else {
+                        System.out.println("Jogada inválida! A posição não está mais disponível.");
+                    }
+                } else {
+                    System.out.println("Jogada inválida! Os valores devem ser entre 1 e 3.");
+                }
+            } else {
+                System.out.println("Entrada inválida! Digite dois números separados por espaço.");
+            }
         }
-        else{
-            System.out.println("Jogada inválida");
-        }
-        
-        return jogadaInt;
+
+        return jogada;
     }
-        public static int[] obterJogadaComputador(String posicoesLivres, Scanner teclado) {
-            //dividir a string de posições livres em um vetor de string
-            String[] vetorPoscoes = posicoesLivres.split(";");
 
-            Random rd = new Random();
-            int indiceSorteado = rd.nextInt(vetorPoscoes.length);
+    public static int[] obterJogadaComputador(String posicoesLivres, Scanner teclado) {
+        // if (posicoesLivres == null || posicoesLivres.trim().isEmpty()) {
+        //     throw new IllegalArgumentException("Posições livres não podem estar vazias.");
+        // }
+        // Divide a string de posições livres em um vetor
+        String[] vetorPosicoes = posicoesLivres.split(";");
+        Random rd = new Random();
 
-            String jogadaSorteada = vetorPoscoes[indiceSorteado];
+        int indiceSorteado = rd.nextInt(vetorPosicoes.length);
 
-
-            return converterJogadaStringParaVetorInt(jogadaSorteada);
+        return converterJogadaStringParaVetorInt(vetorPosicoes[indiceSorteado]);
     }
-    
+
     public static int[] converterJogadaStringParaVetorInt(String jogada) {
-        // Validar se a jogada está no formato correto (exemplo: "A 1")
+
         if (jogada == null || jogada.trim().isEmpty()) {
-            throw new IllegalArgumentException("Entrada inválida. Use o formato A 1, B 2, etc.");
+            throw new IllegalArgumentException("Formato da jogada inválido.");
         }
 
-        // Dividir a jogada em linha e coluna
-        String[] partes = jogada.trim().split("\\s+"); // Divide pelo espaço
-        if (partes.length != 2) {
-            throw new IllegalArgumentException("Entrada inválida. Certifique-se de usar o formato LINHA COLUNA.");
+        jogada = jogada.trim();
+
+        String[] partes = jogada.split(" ");
+
+        int[] resultado = new int[2];
+
+        try {
+            resultado[0] = Integer.parseInt(partes[0]) - 1; // Linha (1-3) -> índice (0-2)
+            resultado[1] = Integer.parseInt(partes[1]) - 1; // Coluna (1-3) -> índice (0-2)
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Formato da jogada inválido. A linha e a coluna devem ser números.");
         }
 
-        String linhaStr = partes[0].toUpperCase(); // Exemplo: "A"
-        String colunaStr = partes[1];             // Exemplo: "1"
-
-        int linha, coluna;
-
-        // Validar e converter linha (A, B, C)
-        switch (linhaStr) {
-            case "A": linha = 0; break;
-            case "B": linha = 1; break;
-            case "C": linha = 2; break;
-            default:
-                throw new IllegalArgumentException("Linha inválida. Use A, B ou C.");
-        }
-
-        // Validar e converter coluna (1, 2, 3)
-        if (colunaStr.matches("[1-3]")) {
-            coluna = Integer.parseInt(colunaStr) - 1;
-        } else {
-            throw new IllegalArgumentException("Coluna inválida. Use valores de 1 a 3.");
-        }
-
-        // Retornar as coordenadas da matriz
-        return new int[] { linha, coluna };
+        return resultado;
     }
-
 
     public static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
-        String posicao = Integer.toString(linha) + Integer.toString(coluna); //converte o valor da linha e coluna em String e junta as duas para formar a posicao
-        
-        return posicoesLivres.contains(posicao); // verifica se a posicao está contida dentro de posicoesLivres, se sim retorna true, se não retorna false
-    
-    }
+  
+        String posicao = (linha + 1) + " " + (coluna + 1);
 
+        return posicoesLivres.contains(posicao);
+    }
 }
