@@ -15,7 +15,7 @@ public class TeveGanha {
             if (tabuleiro[i][0] == caractereJogador &&
                 tabuleiro[i][1] == caractereJogador &&
                 tabuleiro[i][2] == caractereJogador) {
-                return true; // Linha `i` é ganhadora
+                return true;
             }
         }
         return false; 
@@ -27,10 +27,10 @@ public class TeveGanha {
             if (tabuleiro[0][j] == caractereJogador &&
                 tabuleiro[1][j] == caractereJogador &&
                 tabuleiro[2][j] == caractereJogador) {
-                return true; // Coluna `j` é ganhadora
+                return true;
             }
         }
-        return false; // 
+        return false;
     }
 
     public static boolean teveGanhadorDiagonalPrincipal(char[][] tabuleiro, char caractereJogador) {

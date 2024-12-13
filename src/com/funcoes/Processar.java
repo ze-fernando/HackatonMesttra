@@ -30,9 +30,9 @@ public class Processar {
 
     public static boolean sortearValorBooleano() {
         Random rd = new Random();
-        boolean valor = rd.nextBoolean(); // sorteia um valor aleatorio
+        boolean valor = rd.nextBoolean();
 
-        return valor; // retorna o valor
+        return valor;
     }
 
     public static void limparTela() {

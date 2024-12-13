@@ -2,24 +2,20 @@ import java.util.Scanner;
 import com.funcoes.*;
 
 public class JogoVelha {
-
     final static String CARACTERES_IDENTIFICADORES_ACEITOS = "XO0UC";
     final static int TAMANHO_TABULEIRO = 3;
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
-        // Inicializar tabuleiro
         char[][] tabuleiro = Tabuleiro.inicializarTabuleiro(new char[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO]);
 
-        // Escolha dos caracteres para o jogador e o computador
         System.out.println("Digite o caractere que você quer utilizar [X] [O] [0] [U] [C]: ");
         char caractereUsuario = ObterCaractere.obterCaractereUsuario(teclado);
 
         System.out.println("Digite o caractere que o computador irá utilizar [X] [O] [0] [U] [C]: ");
         char caractereComputador = ObterCaractere.obterCaractereComputador(teclado, caractereUsuario);
 
-        // Sorteio para determinar quem inicia o jogo
         boolean vezUsuarioJogar = Processar.sortearValorBooleano();
 
         boolean jogoContinua;

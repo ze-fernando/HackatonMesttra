@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ObterJogadas {
     static int[] obterJogadaUsuario(String posicoesLivres, Scanner teclado) {
-        int[] jogada = new int[2]; //armazenar a linha e a coluna
+        int[] jogada = new int[2];
 
         while (true) {
             System.out.println("Digite dois valores seprados por espaço LINHA COLUNA:  (exemplo: 1 1, 2 3, etc): ");
@@ -37,10 +37,6 @@ public class ObterJogadas {
     }
 
     public static int[] obterJogadaComputador(String posicoesLivres, Scanner teclado) {
-        // if (posicoesLivres == null || posicoesLivres.trim().isEmpty()) {
-        //     throw new IllegalArgumentException("Posições livres não podem estar vazias.");
-        // }
-        // Divide a string de posições livres em um vetor
         String[] vetorPosicoes = posicoesLivres.split(";");
         Random rd = new Random();
 
@@ -62,8 +58,8 @@ public class ObterJogadas {
         int[] resultado = new int[2];
 
         try {
-            resultado[0] = Integer.parseInt(partes[0]) - 1; // Linha (1-3) -> índice (0-2)
-            resultado[1] = Integer.parseInt(partes[1]) - 1; // Coluna (1-3) -> índice (0-2)
+            resultado[0] = Integer.parseInt(partes[0]) - 1;
+            resultado[1] = Integer.parseInt(partes[1]) - 1;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Formato da jogada inválido. A linha e a coluna devem ser números.");
         }

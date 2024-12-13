@@ -11,13 +11,13 @@ public class ObterCaractere {
                 char entrada = teclado.nextLine().toUpperCase().charAt(0);
 
                 if (isValid(entrada)) {
-                    return entrada; // Retorna o caractere válido escolhido pelo usuário
+                    return entrada;
                 }
 
                 System.out.println("Entrada inválida. Por favor, escolha um caractere válido.");
             } catch (Exception e) {
                 System.out.println("Erro ao ler a entrada. Tente novamente.");
-                teclado.nextLine(); // Limpa a entrada em caso de erro
+                teclado.nextLine();
             }
         }
     }

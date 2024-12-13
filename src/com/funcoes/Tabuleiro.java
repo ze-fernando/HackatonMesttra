@@ -1,12 +1,7 @@
 package com.funcoes;
 
 public class Tabuleiro {
-
-    // Inicializar tabuleiro com espaços
     public static char[][] inicializarTabuleiro(char[][] tabuleiro) {
-        // if (tabuleiro == null || tabuleiro.length != 3 || tabuleiro[0].length != 3) {
-        // throw new IllegalArgumentException("O tabuleiro deve ser uma matriz 3x3.");
-        // }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 tabuleiro[i][j] = ' ';
@@ -16,15 +11,13 @@ public class Tabuleiro {
         return tabuleiro;
     }
 
-    // Exibir tabuleiro no console
     public static void exibirTabuleiro(char[][] tabuleiro) {
-     // para garantir que seja exibido o tabuleiro sem nenhum conteúdo antes dele.
         System.out.println("Coluna:       1     2      3");
         for (int i = 0; i < 3; i++) {
             System.out.printf("linha %d   ", i + 1);
             for (int j = 0; j < 3; j++) {
                 System.out.printf("   %c", tabuleiro[i][j]);
-                if (j < 2) { // Não imprimir "|" na última coluna
+                if (j < 2) {
                     System.out.print("  |");
                 }
             }

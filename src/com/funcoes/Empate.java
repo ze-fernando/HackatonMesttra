@@ -2,7 +2,6 @@
 package com.funcoes;
 
 public class Empate {
-
     public static void exibirEmpate() {
         System.out.println("**********************************");
         System.out.println("*          Ocorreu empate!       *");
