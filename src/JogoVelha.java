@@ -23,9 +23,11 @@ public class JogoVelha {
         boolean vezUsuarioJogar = Processar.sortearValorBooleano();
 
         boolean jogoContinua;
-
+        
         do {
             jogoContinua = true;
+            Processar.limparTela();
+
             Tabuleiro.exibirTabuleiro(tabuleiro);
 
             if (vezUsuarioJogar) {
@@ -48,8 +50,6 @@ public class JogoVelha {
 
                 vezUsuarioJogar = true;
             }
-
-            Processar.limparTela();
 
             if (jogoContinua && Empate.teveEmpate(tabuleiro)) {
                 Empate.exibirEmpate();

@@ -8,7 +8,7 @@ public class ObterJogadas {
         int[] jogada = new int[2]; //armazenar a linha e a coluna
 
         while (true) {
-            System.out.println("Digite a jogada (exemplo: 1 1, 2 3, etc): ");
+            System.out.println("Digite dois valores seprados por espaço LINHA COLUNA:  (exemplo: 1 1, 2 3, etc): ");
             String input = teclado.nextLine().trim(); 
 
             if (input.matches("\\d+ \\d+")) {
@@ -37,9 +37,9 @@ public class ObterJogadas {
     }
 
     public static int[] obterJogadaComputador(String posicoesLivres, Scanner teclado) {
-        if (posicoesLivres == null || posicoesLivres.trim().isEmpty()) {
-            throw new IllegalArgumentException("Posições livres não podem estar vazias.");
-        }
+        // if (posicoesLivres == null || posicoesLivres.trim().isEmpty()) {
+        //     throw new IllegalArgumentException("Posições livres não podem estar vazias.");
+        // }
         // Divide a string de posições livres em um vetor
         String[] vetorPosicoes = posicoesLivres.split(";");
         Random rd = new Random();

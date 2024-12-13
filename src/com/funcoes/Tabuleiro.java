@@ -4,10 +4,9 @@ public class Tabuleiro {
 
     // Inicializar tabuleiro com espaços
     public static char[][] inicializarTabuleiro(char[][] tabuleiro) {
-        if (tabuleiro == null || tabuleiro.length != 3 || tabuleiro[0].length != 3) {
-            throw new IllegalArgumentException("O tabuleiro deve ser uma matriz 3x3.");
-        }
-
+        // if (tabuleiro == null || tabuleiro.length != 3 || tabuleiro[0].length != 3) {
+        // throw new IllegalArgumentException("O tabuleiro deve ser uma matriz 3x3.");
+        // }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 tabuleiro[i][j] = ' ';
@@ -19,25 +18,25 @@ public class Tabuleiro {
 
     // Exibir tabuleiro no console
     public static void exibirTabuleiro(char[][] tabuleiro) {
-        System.out.println("Tabuleiro Atual:");
+     // para garantir que seja exibido o tabuleiro sem nenhum conteúdo antes dele.
+        System.out.println("Coluna:       1     2      3");
         for (int i = 0; i < 3; i++) {
-            System.out.print((i + 1) + "  "); // Exibe o número da linha
+            System.out.printf("linha %d   ", i + 1);
             for (int j = 0; j < 3; j++) {
-                System.out.print("  " + tabuleiro[i][j]); // Mostra o caractere na posição
-                if (j < 2) {
-                    System.out.print("  |"); // Adiciona separador entre colunas
+                System.out.printf("   %c", tabuleiro[i][j]);
+                if (j < 2) { // Não imprimir "|" na última coluna
+                    System.out.print("  |");
                 }
             }
             System.out.println();
             if (i < 2) {
-                System.out.println("   ------+------+------"); // Adiciona separador entre linhas
+                System.out.println("          ------+------+------");
             }
         }
     }
 
-   
     public static char[][] retornarTabuleiroAtualizado(char[][] tabuleiro, int[] jogada, char caractereJogador) {
-        
+
         if (jogada == null || jogada.length != 2) {
             throw new IllegalArgumentException("A jogada deve conter exatamente dois valores: linha e coluna.");
         }
@@ -55,7 +54,7 @@ public class Tabuleiro {
 
         tabuleiro[linha][coluna] = caractereJogador;
 
-        return tabuleiro; 
+        return tabuleiro;
     }
 
     public static String retornarPosicoesLivres(char[][] tabuleiro) {
@@ -63,11 +62,11 @@ public class Tabuleiro {
 
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro[i].length; j++) {
-                if (tabuleiro[i][j] == ' ') { 
+                if (tabuleiro[i][j] == ' ') {
                     if (posicoesLivres.length() > 0) {
                         posicoesLivres.append(";");
                     }
-                    
+
                     posicoesLivres.append((i + 1)).append(" ").append((j + 1));
                 }
             }
