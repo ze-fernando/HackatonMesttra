@@ -1,4 +1,4 @@
-![Texto Alternativo](/img/1719261715076.webp)
+![Imagem do 1000devs](/img/1719261715076.webp)
 
 # Jogo da Velha CLI - Hackathon 1000Devs
 
@@ -18,7 +18,7 @@ O objetivo foi construir um jogo da velha (Tic-Tac-Toe) em um tabuleiro 3x3, ond
 - **Detecção de vitória ou empate**: Fim de jogo quando uma das condições é atingida.
 
 ## Tecnologias Utilizadas
-- **Linguagem de Programação**: Python
+- **Linguagem de Programação**: Java
 - **Ambiente de Desenvolvimento**: CLI
 - **Controle de Versão**: Git
 
